@@ -1,6 +1,5 @@
 package com.whereq.realtor.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -39,10 +38,6 @@ public class Location implements Serializable {
 
     @Column(name = "description")
     private String description;
-
-    @OneToOne(mappedBy = "location")
-    @JsonIgnore
-    private Listing listing;
 
     public Long getId() {
         return id;
@@ -128,19 +123,6 @@ public class Location implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Listing getListing() {
-        return listing;
-    }
-
-    public Location listing(Listing listing) {
-        this.listing = listing;
-        return this;
-    }
-
-    public void setListing(Listing listing) {
-        this.listing = listing;
     }
 
     @Override
