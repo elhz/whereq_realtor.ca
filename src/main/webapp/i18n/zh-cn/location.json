@@ -20,8 +20,7 @@
             "longitude": "Longitude",
             "postcode": "Postcode",
             "fullAddress": "Full Address",
-            "description": "Description",
-            "listing": "Listing"
+            "description": "Description"
         }
     }
 }

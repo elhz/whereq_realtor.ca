@@ -21,8 +21,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing Location.
@@ -87,19 +85,11 @@ public class LocationResource {
      * GET  /locations : get all the locations.
      *
      * @param pageable the pagination information
-     * @param filter the filter of the request
      * @return the ResponseEntity with status 200 (OK) and the list of locations in body
      */
     @GetMapping("/locations")
     @Timed
-    public ResponseEntity<List<Location>> getAllLocations(@ApiParam Pageable pageable, @RequestParam(required = false) String filter) {
-        if ("listing-is-null".equals(filter)) {
-            log.debug("REST request to get all Locations where listing is null");
-            return new ResponseEntity<>(StreamSupport
-                .stream(locationRepository.findAll().spliterator(), false)
-                .filter(location -> location.getListing() == null)
-                .collect(Collectors.toList()), HttpStatus.OK);
-        }
+    public ResponseEntity<List<Location>> getAllLocations(@ApiParam Pageable pageable) {
         log.debug("REST request to get a page of Locations");
         Page<Location> page = locationRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/locations");

@@ -1,4 +1,3 @@
-import { Listing } from '../listing';
 export class Location {
     constructor(
         public id?: number,
@@ -8,7 +7,6 @@ export class Location {
         public postcode?: string,
         public fullAddress?: string,
         public description?: string,
-        public listing?: Listing,
     ) {
     }
 }

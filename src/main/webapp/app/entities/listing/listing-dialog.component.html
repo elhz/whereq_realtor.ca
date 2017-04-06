@@ -102,7 +102,7 @@
         <div class="form-group">
             <label jhiTranslate="whereQRealtorCaApp.listing.location" for="field_location">Location</label>
             <select class="form-control" id="field_location" name="location" [(ngModel)]="listing.location" required>
-                <option [ngValue]="locationOption.id === listing.location?.id ? listing.location : locationOption" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.fullAddress}}</option>
+                <option [ngValue]="locationOption.id === listing.location?.id ? listing.location : locationOption" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.address}}</option>
             </select>
         </div>
         <div [hidden]="!(editForm.controls.location?.dirty && editForm.controls.location?.invalid)">

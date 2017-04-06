@@ -31,7 +31,7 @@
         <dt><span jhiTranslate="whereQRealtorCaApp.listing.location">Location</span></dt>
         <dd>
             <div *ngIf="listing.location">
-                <a [routerLink]="['/location', listing.location?.id]">{{listing.location?.fullAddress}}</a>
+                <a [routerLink]="['/location', listing.location?.id]">{{listing.location?.address}}</a>
             </div>
         </dd>
     </dl>

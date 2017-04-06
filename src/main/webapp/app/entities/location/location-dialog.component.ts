@@ -8,7 +8,6 @@ import { EventManager, AlertService, JhiLanguageService } from 'ng-jhipster';
 import { Location } from './location.model';
 import { LocationPopupService } from './location-popup.service';
 import { LocationService } from './location.service';
-import { Listing, ListingService } from '../listing';
 
 @Component({
     selector: 'jhi-location-dialog',
@@ -19,14 +18,11 @@ export class LocationDialogComponent implements OnInit {
     location: Location;
     authorities: any[];
     isSaving: boolean;
-
-    listings: Listing[];
     constructor(
         public activeModal: NgbActiveModal,
         private jhiLanguageService: JhiLanguageService,
         private alertService: AlertService,
         private locationService: LocationService,
-        private listingService: ListingService,
         private eventManager: EventManager
     ) {
         this.jhiLanguageService.setLocations(['location']);
@@ -35,8 +31,6 @@ export class LocationDialogComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
-        this.listingService.query().subscribe(
-            (res: Response) => { this.listings = res.json(); }, (res: Response) => this.onError(res.json()));
     }
     clear () {
         this.activeModal.dismiss('cancel');
@@ -73,10 +67,6 @@ export class LocationDialogComponent implements OnInit {
 
     private onError (error) {
         this.alertService.error(error.message, null, null);
-    }
-
-    trackListingById(index: number, item: Listing) {
-        return item.id;
     }
 }
 

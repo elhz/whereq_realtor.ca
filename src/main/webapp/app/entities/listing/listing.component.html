@@ -23,7 +23,7 @@
             <th jhiSortBy="modifiedDate"><span jhiTranslate="whereQRealtorCaApp.listing.modifiedDate">Modified Date</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="style"><span jhiTranslate="whereQRealtorCaApp.listing.style">Style</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="listingPrice"><span jhiTranslate="whereQRealtorCaApp.listing.listingPrice">Listing Price</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="location.fullAddress"><span jhiTranslate="whereQRealtorCaApp.listing.location">Location</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="location.address"><span jhiTranslate="whereQRealtorCaApp.listing.location">Location</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -38,7 +38,7 @@
                 <td>{{listing.listingPrice}}</td>
                 <td>
                     <div *ngIf="listing.location">
-                        <a [routerLink]="['../location', listing.location?.id ]" >{{listing.location?.fullAddress}}</a>
+                        <a [routerLink]="['../location', listing.location?.id ]" >{{listing.location?.address}}</a>
                     </div>
                 </td>
                 <td class="text-right">
