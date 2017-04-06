@@ -4,14 +4,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,17 +23,19 @@ import com.whereq.realtor.domain.enumeration.Style;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = WhereQRealtorCaApp.class)
 @Transactional
-public class ListingRepositoryUnitTest {
+public class ListingRepositoryUnitTest extends AbstractTransactionalJUnit4SpringContextTests{
 	@Autowired
 	private ListingRepository listingRepository;
 
 	@Before
     public void setUp() {
 		
+		deleteFromTables("location", "listing");
+		executeSqlScript("classpath:test_data.sql", false);
 	}
 	
 	@Test(expected = javax.validation.ConstraintViolationException.class)
-    public void addNewListing() {
+    public void testAddNewListing() {
 		Listing listing = new Listing();
 		
 		assertThat(null == listing.getId()).isTrue();
@@ -49,9 +50,11 @@ public class ListingRepositoryUnitTest {
 	}
 
 	@Test
-	public void testAssertSuccess() throws Exception {
+	public void testGetListingById() throws Exception {
 	
-	    List<Listing> listings = new ArrayList<Listing>();
-	    assertThat(listings).hasSize(0);
+	    Listing listing = listingRepository.findOne(1L);
+	    assertThat(listing == null).isFalse();
+	    assertThat(listing.getListingType().equals(ListingType.DETACHED)).isTrue();	
+	    assertThat(listing.getLocation().getAddress().equals("509 Forest Drive")).isTrue();
 	}
 }
