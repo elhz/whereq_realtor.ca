@@ -1,0 +1,10 @@
+{
+    "whereQRealtorCaApp": {
+        "Style" : {
+            "null": "",
+            "BUNGALOW": "BUNGALOW",
+            "THREESTOREY": "THREESTOREY",
+            "TWOSTOREY": "TWOSTOREY"
+        }
+    }
+}

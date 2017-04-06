@@ -1,0 +1,9 @@
+{
+    "whereQRealtorCaApp": {
+        "ListingStatus" : {
+            "null": "",
+            "AVAILABLE": "AVAILABLE",
+            "UNAVAILABLE": "UNAVAILABLE"
+        }
+    }
+}

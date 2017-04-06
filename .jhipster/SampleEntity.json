@@ -1,0 +1,59 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "stringNormal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringWithLength",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "8",
+            "fieldValidateRulesMaxlength": "32"
+        },
+        {
+            "fieldName": "integerNormal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "longNormal",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "floatNormal",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "doubleNormal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "bigDecimalNormal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dateNormal",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "booleanNormal",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "enumNormal",
+            "fieldType": "ListingStatus",
+            "fieldValues": "AVAILABLE,UNAVAILABLE,PC"
+        }
+    ],
+    "changelogDate": "20170404200630",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "sample_entity",
+    "pagination": "no"
+}

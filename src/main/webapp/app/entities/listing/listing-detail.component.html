@@ -1,0 +1,51 @@
+
+<div *ngIf="listing">
+    <h2><span jhiTranslate="whereQRealtorCaApp.listing.detail.title">Listing</span> {{listing.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="whereQRealtorCaApp.listing.listingType">Listing Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'whereQRealtorCaApp.ListingType.' + listing.listingType}}">{{listing.listingType}}</span>
+        </dd>
+        <dt><span jhiTranslate="whereQRealtorCaApp.listing.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'whereQRealtorCaApp.ListingStatus.' + listing.status}}">{{listing.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="whereQRealtorCaApp.listing.inputDate">Input Date</span></dt>
+        <dd>
+            <span>{{listing.inputDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="whereQRealtorCaApp.listing.modifiedDate">Modified Date</span></dt>
+        <dd>
+            <span>{{listing.modifiedDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="whereQRealtorCaApp.listing.style">Style</span></dt>
+        <dd>
+            <span jhiTranslate="{{'whereQRealtorCaApp.Style.' + listing.style}}">{{listing.style}}</span>
+        </dd>
+        <dt><span jhiTranslate="whereQRealtorCaApp.listing.listingPrice">Listing Price</span></dt>
+        <dd>
+            <span>{{listing.listingPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="whereQRealtorCaApp.listing.location">Location</span></dt>
+        <dd>
+            <div *ngIf="listing.location">
+                <a [routerLink]="['/location', listing.location?.id]">{{listing.location?.fullAddress}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'listing/'+ listing.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

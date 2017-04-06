@@ -1,0 +1,65 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "fullAddress",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "listing"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "listingType",
+            "fieldType": "ListingType",
+            "fieldValues": "CONDOMINIUMS,DETACHED,TOWNHOUSE,SEMI_DETACHED,DUPLEX_TRIPLEX,COMMERCIAL_PROPERTY",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ListingStatus",
+            "fieldValues": "AVAILABLE,UNAVAILABLE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "inputDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "style",
+            "fieldType": "Style",
+            "fieldValues": "BUNGALOW,THREESTOREY,TWOSTOREY",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "listingPrice",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170404204647",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "listing",
+    "pagination": "pagination"
+}

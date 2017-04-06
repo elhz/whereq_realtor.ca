@@ -1,0 +1,123 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myListingLabel" jhiTranslate="whereQRealtorCaApp.listing.home.createOrEditLabel">Create or edit a Listing</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!listing.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="listing.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.listing.listingType" for="field_listingType">Listing Type</label>
+            <select class="form-control" name="listingType" [(ngModel)]="listing.listingType" id="field_listingType"  required>
+                <option value="CONDOMINIUMS" jhiTranslate="whereQRealtorCaApp.ListingType.CONDOMINIUMS">CONDOMINIUMS</option>
+                <option value="DETACHED" jhiTranslate="whereQRealtorCaApp.ListingType.DETACHED">DETACHED</option>
+                <option value="TOWNHOUSE" jhiTranslate="whereQRealtorCaApp.ListingType.TOWNHOUSE">TOWNHOUSE</option>
+                <option value="SEMI_DETACHED" jhiTranslate="whereQRealtorCaApp.ListingType.SEMI_DETACHED">SEMI_DETACHED</option>
+                <option value="DUPLEX_TRIPLEX" jhiTranslate="whereQRealtorCaApp.ListingType.DUPLEX_TRIPLEX">DUPLEX_TRIPLEX</option>
+                <option value="COMMERCIAL_PROPERTY" jhiTranslate="whereQRealtorCaApp.ListingType.COMMERCIAL_PROPERTY">COMMERCIAL_PROPERTY</option>
+            </select>
+            <div [hidden]="!(editForm.controls.listingType?.dirty && editForm.controls.listingType?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.listingType?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.listing.status" for="field_status">Status</label>
+            <select class="form-control" name="status" [(ngModel)]="listing.status" id="field_status"  required>
+                <option value="AVAILABLE" jhiTranslate="whereQRealtorCaApp.ListingStatus.AVAILABLE">AVAILABLE</option>
+                <option value="UNAVAILABLE" jhiTranslate="whereQRealtorCaApp.ListingStatus.UNAVAILABLE">UNAVAILABLE</option>
+            </select>
+            <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.status?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.listing.inputDate" for="field_inputDate">Input Date</label>
+            <div class="input-group">
+                <input id="field_inputDate" type="text" class="form-control" name="inputDate" ngbDatepicker  #inputDateDp="ngbDatepicker" [(ngModel)]="listing.inputDate"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="inputDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.inputDate?.dirty && editForm.controls.inputDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.inputDate?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.listing.modifiedDate" for="field_modifiedDate">Modified Date</label>
+            <div class="input-group">
+                <input id="field_modifiedDate" type="text" class="form-control" name="modifiedDate" ngbDatepicker  #modifiedDateDp="ngbDatepicker" [(ngModel)]="listing.modifiedDate"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="modifiedDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.listing.style" for="field_style">Style</label>
+            <select class="form-control" name="style" [(ngModel)]="listing.style" id="field_style"  required>
+                <option value="BUNGALOW" jhiTranslate="whereQRealtorCaApp.Style.BUNGALOW">BUNGALOW</option>
+                <option value="THREESTOREY" jhiTranslate="whereQRealtorCaApp.Style.THREESTOREY">THREESTOREY</option>
+                <option value="TWOSTOREY" jhiTranslate="whereQRealtorCaApp.Style.TWOSTOREY">TWOSTOREY</option>
+            </select>
+            <div [hidden]="!(editForm.controls.style?.dirty && editForm.controls.style?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.style?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.listing.listingPrice" for="field_listingPrice">Listing Price</label>
+            <input type="number" class="form-control" name="listingPrice" id="field_listingPrice"
+                [(ngModel)]="listing.listingPrice"
+            required />
+            <div [hidden]="!(editForm.controls.listingPrice?.dirty && editForm.controls.listingPrice?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.listingPrice?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.listingPrice?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="whereQRealtorCaApp.listing.location" for="field_location">Location</label>
+            <select class="form-control" id="field_location" name="location" [(ngModel)]="listing.location" required>
+                <option [ngValue]="locationOption.id === listing.location?.id ? listing.location : locationOption" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.fullAddress}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.location?.dirty && editForm.controls.location?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.location?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

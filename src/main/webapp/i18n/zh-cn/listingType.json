@@ -1,0 +1,13 @@
+{
+    "whereQRealtorCaApp": {
+        "ListingType" : {
+            "null": "",
+            "CONDOMINIUMS": "CONDOMINIUMS",
+            "DETACHED": "DETACHED",
+            "TOWNHOUSE": "TOWNHOUSE",
+            "SEMI_DETACHED": "SEMI_DETACHED",
+            "DUPLEX_TRIPLEX": "DUPLEX_TRIPLEX",
+            "COMMERCIAL_PROPERTY": "COMMERCIAL_PROPERTY"
+        }
+    }
+}

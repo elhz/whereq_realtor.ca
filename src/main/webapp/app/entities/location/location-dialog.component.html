@@ -1,0 +1,61 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myLocationLabel" jhiTranslate="whereQRealtorCaApp.location.home.createOrEditLabel">Create or edit a Location</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!location.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="location.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.location.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                [(ngModel)]="location.address"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.location.latitude" for="field_latitude">Latitude</label>
+            <input type="number" class="form-control" name="latitude" id="field_latitude"
+                [(ngModel)]="location.latitude"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.location.longitude" for="field_longitude">Longitude</label>
+            <input type="number" class="form-control" name="longitude" id="field_longitude"
+                [(ngModel)]="location.longitude"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.location.postcode" for="field_postcode">Postcode</label>
+            <input type="text" class="form-control" name="postcode" id="field_postcode"
+                [(ngModel)]="location.postcode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.location.fullAddress" for="field_fullAddress">Full Address</label>
+            <input type="text" class="form-control" name="fullAddress" id="field_fullAddress"
+                [(ngModel)]="location.fullAddress"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="whereQRealtorCaApp.location.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="location.description"
+             />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
