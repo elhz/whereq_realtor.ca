@@ -1,14 +1,6 @@
 {
     "fluentMethods": true,
-    "relationships": [
-        {
-            "relationshipName": "listing",
-            "otherEntityName": "listing",
-            "relationshipType": "one-to-one",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "location"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldName": "address",
