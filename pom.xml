@@ -10,14 +10,10 @@
     </parent>
 
     <groupId>com.whereq.realtor</groupId>
-    <artifactId>where-q-realtor-ca</artifactId>
+    <artifactId>whereq-realtor-ca</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Where Q Realtor CA</name>
-
-    <prerequisites>
-        <maven>${maven.version}</maven>
-    </prerequisites>
 
     <properties>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx256m</argLine>

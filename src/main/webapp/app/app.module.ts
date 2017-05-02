@@ -10,6 +10,9 @@ import { WhereQRealtorCaAdminModule } from './admin/admin.module';
 import { WhereQRealtorCaAccountModule } from './account/account.module';
 import { WhereQRealtorCaEntityModule } from './entities/entity.module';
 
+import { MapModule } from './map/map.module';
+import { SchoolModule } from './school/school.module';
+
 import { LayoutRoutingModule } from './layouts';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
@@ -24,7 +27,6 @@ import {
     ErrorComponent
 } from './layouts';
 
-
 @NgModule({
     imports: [
         BrowserModule,
@@ -34,7 +36,10 @@ import {
         WhereQRealtorCaHomeModule,
         WhereQRealtorCaAdminModule,
         WhereQRealtorCaAccountModule,
-        WhereQRealtorCaEntityModule
+        WhereQRealtorCaEntityModule,
+        
+        MapModule,
+        SchoolModule
     ],
     declarations: [
         JhiMainComponent,
